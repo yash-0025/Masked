@@ -141,12 +141,22 @@ contract Masked is Ownable {
 
         emit FriendRemoved(msg.sender, _friendAddress);
     }
+    // ---------------- VIEW FUNCTIONS -----------------------------
+    function getFriends(address _user) public view returns(address[] memory) {
+        // require(_user == msg.sender, "You cannot view someone else friends");
+        return friends[_user];
+    }
+
+    function getPostsCount() public view returns(uint256) {
+        return posts.length;
+    }
 
 
-
-
-
-
+    function getPost(uint256 _postId) public view returns(address, string memory, string memory, string memory, uint256) {
+        require(_postId < posts.length, "Post ID not found");
+        Post storage p = posts[_postId];
+        return(p.author, p.username, p.content, p.imageHash, p.timestamp);
+    }
 
 
     // ----------------------------- ONLY OWNER ----------------------------------
