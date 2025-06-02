@@ -112,10 +112,35 @@ contract Masked is Ownable {
         emit FriendAccepted(msg.sender, _friendAddress);
     }
 
-    
 
 
 
+    function removeFriend(address _friendAddress) public {
+        require(isRegistered[msg.sender], "User is not registered");
+        require(isRegistered[_friendAddress], "Your friend is not registered");
+        require(msg.sender != _friendAddress, "Cannot remove yourself ");
+        require(isFriend[msg.sender][_friendAddress], "Not friends with this address");
+
+        for(uint i = 0; i < friends[msg.sender].length; i++){
+            if(friends[msg.sender][i] == _friendAddress) {
+                friends[msg.sender][i] = friends[msg.sender][friends[msg.sender].length - 1];
+                friends[msg.sender].pop();
+                break;
+            }
+        }
+        for(uint i = 0; i<friends[_friendAddress].length; i++) {
+          if(friends[_friendAddress][i] == msg.sender) {
+            friends[_friendAddress][i] = friends[_friendAddress][friends[_friendAddress].length - 1];
+            friends[_friendAddress].pop();
+            break;
+          }
+        }
+
+        isFriend[msg.sender][_friendAddress] = false;
+        isFriend[_friendAddress][msg.sender] = false;
+
+        emit FriendRemoved(msg.sender, _friendAddress);
+    }
 
 
 
