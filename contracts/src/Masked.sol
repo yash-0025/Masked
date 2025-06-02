@@ -93,7 +93,26 @@ contract Masked is Ownable {
         emit FriendRequestSent(msg.sender, _friendAddress);
     }
 
-    function acceptFriendRequest(address _friendAddress)
+    function acceptFriendRequest(address _friendAddress) public {
+        require(isRegistered[msg.sender], "User not registered");
+        require(isRegistered[_friendAddress], "Your friend is not registeres");
+        require(msg.sender != _friendAddress, "Cannot accept request from yourself");
+        require(friendRequestsReceived[msg.sender][_friendAddress], "No pending friend request");
+        require(!isFriend[msg.sender][_friendAddress], "Already Friends");
+
+        friends[msg.sender].push(_friendAddress);
+        friends[_friendAddress].push(msg.sender);
+
+        isFriend[msg.sender][_friendAddress] = true;
+        isFriend[_friendAddress][msg.sender] = true;
+
+        friendRequestsSent[_friendAddress][msg.sender] = false;
+        friendRequestsReceived[msg.sender][_friendAddress] = false;
+
+        emit FriendAccepted(msg.sender, _friendAddress);
+    }
+
+    
 
 
 
