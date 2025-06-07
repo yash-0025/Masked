@@ -43,7 +43,7 @@ io.on('connection', (socket) => {
     })
 })
 
-const PORT = process.env.PORT || 3001;
+const PORT = 3000;
 httpServer.listen(PORT, () => {
     console.log(`Backed Server is listening on PORT :: ${PORT}`);
     console.log(`Socket.io Server is running on PORT :: ${PORT}`);
