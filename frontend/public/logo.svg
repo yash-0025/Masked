@@ -1,0 +1,165 @@
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Modern gradients -->
+    <linearGradient id="maskGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#6366f1;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="frameGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ec4899;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f59e0b;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="decorGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#10b981;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#06b6d4;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Subtle shadow -->
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="2" dy="3" stdDeviation="2" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+  
+  <!-- Party mask main shape -->
+  <path d="M 60 80 Q 100 70 140 80 Q 145 85 145 95 Q 145 105 140 110 L 135 115 Q 130 120 120 120 L 115 120 Q 110 125 100 125 Q 90 125 85 120 L 80 120 Q 70 120 65 115 L 60 110 Q 55 105 55 95 Q 55 85 60 80 Z" 
+        fill="url(#maskGradient)" 
+        stroke="#4c1d95" 
+        stroke-width="2"
+        filter="url(#shadow)"/>
+  
+  <!-- Eye holes -->
+  <ellipse cx="80" cy="95" rx="10" ry="8" fill="#1f2937"/>
+  <ellipse cx="120" cy="95" rx="10" ry="8" fill="#1f2937"/>
+  
+  <!-- Eye sparkles with twinkling animation -->
+  <circle cx="82" cy="92" r="2" fill="#ffffff" opacity="0.8">
+    <animate attributeName="opacity" values="0.8; 0.3; 0.8; 0.3; 0.8" dur="2s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="122" cy="92" r="2" fill="#ffffff" opacity="0.8">
+    <animate attributeName="opacity" values="0.3; 0.8; 0.3; 0.8; 0.3" dur="2.2s" repeatCount="indefinite"/>
+  </circle>
+  
+  <!-- Decorative feathers on top with gentle sway animation -->
+  <g transform="translate(100,70)">
+    <!-- Center feather -->
+    <path d="M 0 0 Q -2 -15 0 -25 Q 2 -15 0 0" fill="url(#decorGradient)" stroke="#065f46" stroke-width="1">
+      <animateTransform attributeName="transform" type="rotate" values="0 0 0; 3 0 0; -3 0 0; 0 0 0" dur="4s" repeatCount="indefinite"/>
+    </path>
+    
+    <!-- Left feather -->
+    <path d="M -15 5 Q -18 -8 -15 -20 Q -12 -8 -15 5" fill="url(#frameGradient)" stroke="#be185d" stroke-width="1">
+      <animateTransform attributeName="transform" type="rotate" values="0 -15 0; -4 -15 0; 2 -15 0; 0 -15 0" dur="3.5s" repeatCount="indefinite"/>
+    </path>
+    
+    <!-- Right feather -->
+    <path d="M 15 5 Q 18 -8 15 -20 Q 12 -8 15 5" fill="url(#frameGradient)" stroke="#be185d" stroke-width="1">
+      <animateTransform attributeName="transform" type="rotate" values="0 15 0; 4 15 0; -2 15 0; 0 15 0" dur="3.8s" repeatCount="indefinite"/>
+    </path>
+  </g>
+  
+  <!-- Photo frames around the mask with appearing animation like live chat -->
+  <g stroke-width="3" fill="none">
+    <!-- Top left frame - appears first -->
+    <rect x="35" y="40" width="20" height="16" rx="2" stroke="url(#frameGradient)" filter="url(#shadow)" opacity="0">
+      <animate attributeName="opacity" values="0; 1; 1; 1; 1; 1; 1; 1; 1; 1; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0" dur="20s" begin="0s" repeatCount="indefinite"/>
+      <animateTransform attributeName="transform" type="scale" values="0.5; 1; 1; 1; 1; 1; 1; 1; 1; 1; 0.5; 0.5; 0.5; 0.5; 0.5; 0.5; 0.5; 0.5; 0.5; 0.5" dur="20s" begin="0s" repeatCount="indefinite"/>
+    </rect>
+    <circle cx="45" cy="48" r="2" fill="url(#frameGradient)" opacity="0">
+      <animate attributeName="opacity" values="0; 1; 1; 1; 1; 1; 1; 1; 1; 1; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0" dur="20s" begin="0s" repeatCount="indefinite"/>
+    </circle>
+    
+    <!-- Top right frame - appears second -->
+    <rect x="145" y="40" width="20" height="16" rx="2" stroke="url(#frameGradient)" filter="url(#shadow)" opacity="0">
+      <animate attributeName="opacity" values="0; 0; 1; 1; 1; 1; 1; 1; 1; 1; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0" dur="20s" begin="0s" repeatCount="indefinite"/>
+      <animateTransform attributeName="transform" type="scale" values="0.5; 0.5; 1; 1; 1; 1; 1; 1; 1; 1; 0.5; 0.5; 0.5; 0.5; 0.5; 0.5; 0.5; 0.5; 0.5; 0.5" dur="20s" begin="0s" repeatCount="indefinite"/>
+    </rect>
+    <circle cx="155" cy="48" r="2" fill="url(#frameGradient)" opacity="0">
+      <animate attributeName="opacity" values="0; 0; 1; 1; 1; 1; 1; 1; 1; 1; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0" dur="20s" begin="0s" repeatCount="indefinite"/>
+    </circle>
+    
+    <!-- Left frame - appears third -->
+    <rect x="25" y="85" width="16" height="20" rx="2" stroke="url(#decorGradient)" filter="url(#shadow)" opacity="0">
+      <animate attributeName="opacity" values="0; 0; 0; 1; 1; 1; 1; 1; 1; 1; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0" dur="20s" begin="0s" repeatCount="indefinite"/>
+      <animateTransform attributeName="transform" type="scale" values="0.5; 0.5; 0.5; 1; 1; 1; 1; 1; 1; 1; 0.5; 0.5; 0.5; 0.5; 0.5; 0.5; 0.5; 0.5; 0.5; 0.5" dur="20s" begin="0s" repeatCount="indefinite"/>
+    </rect>
+    <circle cx="33" cy="95" r="2" fill="url(#decorGradient)" opacity="0">
+      <animate attributeName="opacity" values="0; 0; 0; 1; 1; 1; 1; 1; 1; 1; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0" dur="20s" begin="0s" repeatCount="indefinite"/>
+    </circle>
+    
+    <!-- Right frame - appears fourth -->
+    <rect x="159" y="85" width="16" height="20" rx="2" stroke="url(#decorGradient)" filter="url(#shadow)" opacity="0">
+      <animate attributeName="opacity" values="0; 0; 0; 0; 1; 1; 1; 1; 1; 1; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0" dur="20s" begin="0s" repeatCount="indefinite"/>
+      <animateTransform attributeName="transform" type="scale" values="0.5; 0.5; 0.5; 0.5; 1; 1; 1; 1; 1; 1; 0.5; 0.5; 0.5; 0.5; 0.5; 0.5; 0.5; 0.5; 0.5; 0.5" dur="20s" begin="0s" repeatCount="indefinite"/>
+    </rect>
+    <circle cx="167" cy="95" r="2" fill="url(#decorGradient)" opacity="0">
+      <animate attributeName="opacity" values="0; 0; 0; 0; 1; 1; 1; 1; 1; 1; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0" dur="20s" begin="0s" repeatCount="indefinite"/>
+    </circle>
+    
+    <!-- Bottom left frame - appears fifth -->
+    <rect x="35" y="140" width="20" height="16" rx="2" stroke="url(#maskGradient)" filter="url(#shadow)" opacity="0">
+      <animate attributeName="opacity" values="0; 0; 0; 0; 0; 1; 1; 1; 1; 1; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0" dur="20s" begin="0s" repeatCount="indefinite"/>
+      <animateTransform attributeName="transform" type="scale" values="0.5; 0.5; 0.5; 0.5; 0.5; 1; 1; 1; 1; 1; 0.5; 0.5; 0.5; 0.5; 0.5; 0.5; 0.5; 0.5; 0.5; 0.5" dur="20s" begin="0s" repeatCount="indefinite"/>
+    </rect>
+    <circle cx="45" cy="148" r="2" fill="url(#maskGradient)" opacity="0">
+      <animate attributeName="opacity" values="0; 0; 0; 0; 0; 1; 1; 1; 1; 1; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0" dur="20s" begin="0s" repeatCount="indefinite"/>
+    </circle>
+    
+    <!-- Bottom right frame - appears last -->
+    <rect x="145" y="140" width="20" height="16" rx="2" stroke="url(#maskGradient)" filter="url(#shadow)" opacity="0">
+      <animate attributeName="opacity" values="0; 0; 0; 0; 0; 0; 1; 1; 1; 1; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0" dur="20s" begin="0s" repeatCount="indefinite"/>
+      <animateTransform attributeName="transform" type="scale" values="0.5; 0.5; 0.5; 0.5; 0.5; 0.5; 1; 1; 1; 1; 0.5; 0.5; 0.5; 0.5; 0.5; 0.5; 0.5; 0.5; 0.5; 0.5" dur="20s" begin="0s" repeatCount="indefinite"/>
+    </rect>
+    <circle cx="155" cy="148" r="2" fill="url(#maskGradient)" opacity="0">
+      <animate attributeName="opacity" values="0; 0; 0; 0; 0; 0; 1; 1; 1; 1; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0" dur="20s" begin="0s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+  
+  <!-- Connection dots showing social network with subtle pulsing -->
+  <g fill="#ffffff" opacity="0.7">
+    <circle cx="55" cy="48" r="1.5">
+      <animate attributeName="opacity" values="0.7; 0.3; 0.7" dur="1.5s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="145" cy="48" r="1.5">
+      <animate attributeName="opacity" values="0.3; 0.7; 0.3" dur="1.8s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="41" cy="95" r="1.5">
+      <animate attributeName="opacity" values="0.7; 0.3; 0.7" dur="2.1s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="159" cy="95" r="1.5">
+      <animate attributeName="opacity" values="0.3; 0.7; 0.3" dur="1.7s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="55" cy="148" r="1.5">
+      <animate attributeName="opacity" values="0.7; 0.3; 0.7" dur="1.9s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="145" cy="148" r="1.5">
+      <animate attributeName="opacity" values="0.3; 0.7; 0.3" dur="2.3s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+  
+  <!-- Subtle connection lines -->
+  <g stroke="#ffffff" stroke-width="1" opacity="0.3">
+    <line x1="55" y1="48" x2="75" y2="85"/>
+    <line x1="145" y1="48" x2="125" y2="85"/>
+    <line x1="41" y1="95" x2="65" y2="100"/>
+    <line x1="159" y1="95" x2="135" y2="100"/>
+    <line x1="55" y1="148" x2="80" y2="115"/>
+    <line x1="145" y1="148" x2="120" y2="115"/>
+  </g>
+  
+  <!-- Party mask decorative gems with gentle pulsing -->
+  <circle cx="70" cy="105" r="3" fill="url(#decorGradient)" opacity="0.8">
+    <animate attributeName="r" values="3; 3.5; 3; 2.5; 3" dur="3s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="100" cy="108" r="2" fill="url(#frameGradient)" opacity="0.8">
+    <animate attributeName="r" values="2; 2.5; 2; 1.5; 2" dur="2.8s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="130" cy="105" r="3" fill="url(#decorGradient)" opacity="0.8">
+    <animate attributeName="r" values="3; 2.5; 3; 3.5; 3" dur="3.2s" repeatCount="indefinite"/>
+  </circle>
+  
+  <!-- Mask stick (handle) -->
+  <rect x="98" y="125" width="4" height="20" rx="2" fill="#6b7280" filter="url(#shadow)"/>
+  <circle cx="100" cy="145" r="3" fill="#374151" filter="url(#shadow)"/>
+</svg>
