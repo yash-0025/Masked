@@ -9,7 +9,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { injected, walletConnect } from "wagmi/connectors";
 import { SocketProvider } from "./contexts/SocketContext.jsx";
 
-const projectId = "";
+const projectId = import.meta.env.VITE_WALLET_PROJECT_ID;
 
 const config = createConfig({
   chains: [sepolia],
@@ -21,7 +21,7 @@ const config = createConfig({
     }),
   ],
   transports: {
-    [sepolia.id]: http(),
+    [sepolia.id]: http(import.meta.env.VITE_SEPOLIA_RPC_URL),
   },
 });
 

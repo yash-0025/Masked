@@ -2,7 +2,62 @@
 
 
 
-body {
-  font-family: 'Inter', sans-serif;
-  @apply bg-gray-100 text-gray-900;
+
+@layer base {
+  body {
+    background-color: #0e0e0e; /* Deep dark gray */
+    color: white;
+    @apply min-h-screen overflow-hidden relative;
+  }
+
+  .neon-shape {
+    @apply absolute opacity-20 pointer-events-none mix-blend-screen;
+    animation: morph 16s ease-in-out infinite alternate;
+  }
+
+  .shape-1 {
+    top: 5%;
+    left: -10%;
+    width: 500px;
+    height: 400px;
+    background: linear-gradient(135deg, #00ff8f, #00e0ff);
+    filter: blur(100px);
+    border-radius: 58% 42% 33% 67% / 51% 45% 55% 49%;
+    animation-delay: 0s;
+  }
+
+  .shape-2 {
+    top: 60%;
+    left: 60%;
+    width: 600px;
+    height: 450px;
+    background: linear-gradient(135deg, #a855f7, #3b82f6);
+    filter: blur(120px);
+    border-radius: 43% 57% 51% 49% / 60% 52% 48% 40%;
+    animation-delay: 3s;
+  }
+
+  .shape-3 {
+    bottom: -20%;
+    left: 25%;
+    width: 550px;
+    height: 500px;
+    background: linear-gradient(135deg, #00ffff, #39ff14);
+    filter: blur(140px);
+    border-radius: 50% 50% 70% 30% / 40% 60% 40% 60%;
+    animation-delay: 6s;
+  }
+}
+
+@layer utilities {
+  @keyframes morph {
+    0%, 100% {
+      transform: scale(1) translate(0, 0) rotate(0deg);
+      border-radius: 60% 40% 30% 70% / 50% 60% 40% 50%;
+    }
+    50% {
+      transform: scale(1.05) translate(10px, -10px) rotate(5deg);
+      border-radius: 40% 60% 70% 30% / 60% 50% 60% 40%;
+    }
+  }
 }

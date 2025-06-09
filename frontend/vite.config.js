@@ -8,7 +8,7 @@ export default defineConfig({
     tailwindcss(),
   ],
     define: {
-    'process.env' :{}
+    'process.env':process.env
   },
    server: {
     watch: {
