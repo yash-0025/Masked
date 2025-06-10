@@ -1,7 +1,44 @@
 import './App.css';
 import ConnectWallet from './components/ConnectWallet';
+import { useAccount } from 'wagmi';
+import { useMaskedContract } from './hooks/useMaskedContract';
+import Navbar from './components/Navbar';
+import { useEffect, useState } from 'react';
+
 
 function App() {
+
+  const {address, isConnected} = useAccount();
+  const {read: readDapp} = useMaskedContract()
+  const [isUserRegistered, setIsUserRegistered] = useState(false)
+  const [currentPage, setCurrentPage] = useState('home')
+
+
+  useEffect(() => {
+    const checkRegistration = async() => {
+      if(isConnected && address) {
+        try{
+          if(readDapp && typeof readDapp.isRegistered == 'function') {
+            const registered = await readDapp.isRegistered([address]);
+            setIsUserRegistered(registered)
+          } else{
+            setIsUserRegistered(false)
+          }
+        } catch(error) {
+          console.error("ERror checking user Registration::", error)
+        }
+      } else {
+        setIsUserRegistered(false)
+        setCurrentPage('home')
+      }
+    }
+    checkRegistration()
+  }, [isConnected, address, readDapp])
+
+
+
+
+  
   return (
     <div className="relative min-h-screen flex flex-col items-center justify-center px-6 py-12 overflow-hidden">
       {/* Morphing neon background shapes */}
